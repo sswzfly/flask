@@ -5,7 +5,7 @@ from flask_script import Manager
 from flask import render_template
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
-from flask_wtf import Form
+from flask_wtf import FlaskForm
 from flask_sqlalchemy import SQLAlchemy
 from flask_script import Shell
 from flask_migrate import Migrate, MigrateCommand
@@ -41,7 +41,7 @@ mail = Mail(app)
 manager.add_command('db', MigrateCommand)
 
 
-class NameForm(Form):
+class NameForm(FlaskForm):
     name = StringField('What is your name?', validators=[DataRequired()])
     submit = SubmitField('Submit')
 
